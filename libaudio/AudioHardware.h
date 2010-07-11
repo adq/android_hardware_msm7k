@@ -47,12 +47,31 @@ namespace android {
 
 #define EQ_MAX_BAND_NUM 12
 
+#ifndef ACOUSTIC_ARM11_DONE
+#define ACOUSTIC_ARM11_DONE _IOW('p', 22, unsigned int)
+#endif
+
+#ifndef SET_VR_MODE
+#define SET_VR_MODE _IOW('p', 24, unsigned int)
+#endif
+
+#ifndef AUDIO_ADSP_PAUSE
+#define AUDIO_WAIT_ADSP_DONE        _IOR('p', 16, unsigned)
+#define AUDIO_ADSP_PAUSE            _IOR('p', 17, unsigned)
+#define AUDIO_ADSP_RESUME           _IOR('p', 18, unsigned)
+#define AUDIO_PLAY_DTMF             _IOW('p', 19, unsigned)
+#endif
+
 #define ADRC_ENABLE  0x0001
 #define ADRC_DISABLE 0x0000
 #define EQ_ENABLE    0x0002
 #define EQ_DISABLE   0x0000
 #define RX_IIR_ENABLE   0x0004
 #define RX_IIR_DISABLE  0x0000
+
+#define AUDPRE_AGC_ENABLE   0x0001
+#define AUDPRE_NS_ENABLE    0x0002
+#define AUDPRE_TX_IIR_ENABLE   0x0004   
 
 struct eq_filter_type {
     int16_t gain;
@@ -71,6 +90,19 @@ struct rx_iir_filter {
     uint16_t iir_params[48];
 };
 
+struct tx_agc_config {
+    uint16_t agc_params[20];
+};
+
+struct ns_config {
+    uint16_t ns_params[6];
+};
+
+struct tx_iir_filter {
+    uint16_t num_bands;
+    uint16_t iir_params[48];
+};
+
 struct msm_audio_config {
     uint32_t buffer_size;
     uint32_t buffer_count;
@@ -82,10 +114,19 @@ struct msm_audio_config {
 
 struct msm_audio_stats {
     uint32_t out_bytes;
-    uint32_t unused[3];
+    uint32_t sample_count;
+    uint32_t unused[2];
 };
 
+struct bt_headset {
+    int id;
+    char name[32];
+    struct bt_headset *next;
+};
+
+
 #define CODEC_TYPE_PCM 0
+#define CODEC_TYPE_MP3 2
 #define AUDIO_HW_NUM_OUT_BUF 2  // Number of buffers in audio driver for output
 // TODO: determine actual audio DSP and hardware latency
 #define AUDIO_HW_OUT_LATENCY_MS 0  // Additionnal latency introduced by audio DSP and hardware in ms
@@ -190,6 +231,45 @@ private:
                 uint32_t    mDevices;
     };
 
+    class AudioStreamOutMP3MSM72xx : public AudioStreamOut {
+    public:
+                            AudioStreamOutMP3MSM72xx();
+        virtual             ~AudioStreamOutMP3MSM72xx();
+                status_t    set(AudioHardware* mHardware,
+                                uint32_t devices,
+                                int *pFormat,
+                                uint32_t *pChannels,
+                                uint32_t *pRate);
+        virtual uint32_t    sampleRate() const { return 44100; }
+        // must be 32-bit aligned - driver only seems to like 4800
+        virtual size_t      bufferSize() const { return 4800; }
+        virtual uint32_t    channels() const { return AudioSystem::CHANNEL_OUT_STEREO; }
+        virtual int         format() const { return AudioSystem::MP3; }
+        virtual uint32_t    latency() const { return (1000*AUDIO_HW_NUM_OUT_BUF*(bufferSize()/frameSize()))/sampleRate()+AUDIO_HW_OUT_LATENCY_MS; }
+        virtual status_t    setVolume(float left, float right);
+	virtual status_t    pause();
+	virtual status_t    resume();
+	virtual status_t    get_ADSP_State(uint32_t *byte_count, uint32_t *sample_count);
+	virtual status_t    Wait_Complete();
+        virtual ssize_t     write(const void* buffer, size_t bytes);
+        virtual status_t    standby();
+        virtual status_t    dump(int fd, const Vector<String16>& args);
+                bool        checkStandby();
+        virtual status_t    setParameters(const String8& keyValuePairs);
+        virtual String8     getParameters(const String8& keys);
+        virtual status_t    getRenderPosition(uint32_t *dspFrames);
+
+    private:
+                AudioHardware* mHardware;
+                int         mFd;
+                int         mStartCount;
+                int         mRetryCount;
+		int         mChannelCount;
+		int         mSampleRate;
+                bool        mStandby;
+		uint32_t    mVolume;
+    };
+    
     class AudioStreamInMSM72xx : public AudioStreamIn {
     public:
         enum input_state {
@@ -239,10 +319,9 @@ private:
             bool        mBluetoothNrec;
             uint32_t    mBluetoothId;
             AudioStreamOutMSM72xx*  mOutput;
+            AudioStreamOutMP3MSM72xx*  mOutputMP3;
             SortedVector <AudioStreamInMSM72xx*>   mInputs;
 
-            msm_snd_endpoint *mSndEndpoints;
-            int mNumSndEndpoints;
             int mCurSndDevice;
 
      friend class AudioStreamInMSM72xx;
