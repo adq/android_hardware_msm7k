@@ -1,0 +1,1184 @@
+
+
+/*** UNUSED STUFF ****/
+typedef rpc_boolean rpc_pdapi_version_s_args;
+
+/*** END UNUSED STUFF ****/
+
+
+
+
+
+
+
+
+
+typedef rpc_uint32 rpc_pdsm_xtra_cmd_cb_f_type;
+typedef rpc_uint32 rpc_pdsm_ext_pos_cmd_cb_f_type;
+typedef rpc_uint32 rpc_pdsm_lcs_cmd_cb_f_type;
+typedef rpc_uint32 rpc_pdsm_pa_cmd_cb_f_type;
+typedef rpc_uint32 rpc_pdsm_pd_cmd_cb_f_type;
+
+typedef rpc_uint32 rpc_pdsm_xtra_cmd_err_f_type;
+typedef rpc_uint32 rpc_pdsm_ext_status_cmd_err_f_type;
+typedef rpc_uint32 rpc_pdsm_lcs_cmd_err_f_type;
+typedef rpc_uint32 rpc_pdsm_pa_cmd_err_f_type;
+typedef rpc_uint32 rpc_pdsm_pd_cmd_err_f_type;
+
+typedef rpc_uint32 rpc_pdsm_xtra_event_f_type;
+typedef rpc_uint32 rpc_pdsm_ext_status_event_f_type;
+typedef rpc_uint32 rpc_pdsm_lcs_event_f_type;
+typedef rpc_uint32 rpc_pdsm_pa_event_f_type;
+typedef rpc_uint32 rpc_pdsm_pd_event_f_type;
+
+typedef int rpc_pdsm_client_id_type;
+
+
+
+
+
+
+
+typedef rpc_uint32 rpc_pdapi_api_versions_return_type<>;
+
+struct rpc_pdapi_api_versions_rets {
+  rpc_pdapi_api_versions_return_type unknown1;
+  rpc_uint32 *unknown2;
+};
+
+
+
+
+
+
+
+
+typedef rpc_uint32 rpc_pdsm_xtra_inject_time_info_args_client_data_ptr;
+
+struct rpc_pdsm_xtra_time_info {
+  rpc_uint64 a;
+  rpc_uint32 b;
+  rpc_boolean c;
+  rpc_boolean d;
+};
+
+typedef rpc_pdsm_xtra_time_info rpc_pdsm_xtra_time_info_type;
+
+struct rpc_pdsm_xtra_inject_time_info_args {
+  rpc_pdsm_xtra_cmd_cb_f_type cb_f;
+  rpc_pdsm_client_id_type client_id;
+  rpc_pdsm_xtra_inject_time_info_args_client_data_ptr client_data_ptr;
+  rpc_pdsm_xtra_time_info_type *time_info; 
+};
+
+typedef rpc_boolean rpc_pdsm_xtra_inject_time_info_rets;
+
+
+
+
+
+
+
+typedef rpc_uint32 rpc_pdsm_xtra_query_data_validity_args_client_data_ptr;
+
+struct rpc_pdsm_xtra_query_data_validity_args {
+  rpc_pdsm_xtra_cmd_cb_f_type cb_f;
+  rpc_pdsm_client_id_type client_id;
+  rpc_pdsm_xtra_query_data_validity_args_client_data_ptr client_data_ptr;
+};
+
+typedef rpc_boolean rpc_pdsm_xtra_query_data_validity_rets;
+
+
+
+typedef rpc_uint32 rpc_pdsm_xtra_set_auto_download_params_args_client_data_ptr;
+
+struct rpc_pdsm_set_auto_download_params_args {
+  rpc_pdsm_xtra_cmd_cb_f_type cb_f;
+  rpc_pdsm_client_id_type client_id;
+  rpc_pdsm_xtra_set_auto_download_params_args_client_data_ptr client_data_ptr;
+  rpc_boolean unknown1;
+  rpc_uint16 unknown2;
+};
+
+typedef rpc_boolean rpc_pdsm_set_auto_download_params_rets;
+
+
+
+
+
+
+
+
+typedef rpc_uint32 rpc_pdsm_xtra_client_initiate_download_request_args_client_data_ptr;
+
+struct rpc_pdsm_xtra_client_initiate_download_request_args {
+  rpc_pdsm_xtra_cmd_cb_f_type cb_f;
+  rpc_pdsm_client_id_type client_id;
+  rpc_pdsm_xtra_client_initiate_download_request_args_client_data_ptr client_data_ptr;
+};
+
+typedef rpc_boolean rpc_pdsm_xtra_client_initiate_download_request_rets;
+
+
+
+
+
+
+
+
+enum rpc_pdsm_xtra_dc_status_e {
+  FIXME = 0
+/* // FIXME: unknown values */
+};
+
+typedef enum rpc_pdsm_xtra_dc_status_e rpc_pdsm_xtra_dc_status_e_type;
+
+typedef rpc_uint32 rpc_pdsm_xtra_set_data_args_client_data_ptr;
+
+struct rpc_pdsm_xtra_set_data_args {
+  rpc_pdsm_xtra_cmd_cb_f_type cb_f;
+  rpc_pdsm_client_id_type client_id;
+  rpc_pdsm_xtra_set_data_args_client_data_ptr client_data_ptr;
+  rpc_uint32 unknown1;
+  opaque data<>;
+  rpc_uint8 unknown3;
+  rpc_uint8 unknown4;
+  rpc_pdsm_xtra_dc_status_e_type unknown4;
+};
+
+typedef rpc_boolean rpc_pdsm_xtra_set_data_rets;
+
+
+
+
+
+
+
+
+typedef rpc_uint32 rpc_pdsm_get_pdapi_version_rets;
+
+
+
+
+
+
+
+typedef rpc_boolean rpc_pdsm_lcs_get_status_rets;
+
+
+
+
+
+
+
+typedef rpc_uint32 rpc_pdsm_lcs_get_client_type_args;
+
+enum rpc_pdsm_client_type_e {
+  FIXME = 0
+/* FIXME: unknown values */
+};
+typedef rpc_pdsm_client_type_e rpc_pdsm_client_type_e_type;
+
+struct rpc_pdsm_lcs_get_client_type_rets {
+  rpc_pdsm_client_type_e_type client_type;
+};
+
+
+
+
+
+
+struct rpc_pdsm_lcs_query_vx_config_args {
+  rpc_pdsm_client_type_e_type value;
+};
+
+typedef rpc_boolean rpc_pdsm_lcs_query_vx_config_rets;
+
+
+
+
+
+
+
+typedef rpc_uint32 rpc_pdsm_lcs_client_release_args_client_data_ptr;
+
+struct rpc_pdsm_lcs_client_release_args {
+  rpc_pdsm_lcs_cmd_cb_f_type cb_f;
+  rpc_pdsm_lcs_client_release_args_client_data_ptr client_data_ptr;
+  rpc_uint32 unknown1;
+  rpc_pdsm_client_type_e_type client_type;
+};
+
+typedef rpc_uint32 rpc_pdsm_lcs_client_release_rets;
+
+
+
+
+
+
+
+struct rpc_pdsm_lcs_client_app_info_init_args {
+  rpc_uint32 unknown1;
+  rpc_pdsm_client_type_e_type client_type;
+  rpc_void *ptr; /* FIXME: needs checked */
+  rpc_boolean unknown1;
+};
+
+typedef rpc_boolean rpc_pdsm_lcs_client_app_info_init_rets;
+
+
+
+
+
+
+
+struct rpc_pdsm_lcs_client_init_args {
+  rpc_uint32 unknown1;
+  xdr_rpc_pdsm_client_type_e_type client_type;
+  xdr_boolean unknown2;
+};
+
+typedef rpc_boolean rpc_pdsm_lcs_client_init_rets;
+
+
+
+
+
+
+
+typedef rpc_uint32 rpc_pdsm_use_this_position_args_client_data_ptr;
+
+struct rpc_pdsm_pd_opt_field {
+  u_char a;
+};
+
+struct rpc_pdsm_pd_positioning_source_type {
+  int type;
+};
+
+enum rpc_pdsm_gps_position_e {
+  FIXME =0
+};
+typedef rpc_pdsm_gps_position_e rpc_pdsm_gps_position_e_type;
+
+enum rpc_pdsm_gps_position_mode_e_type {
+  FIXME =0
+};
+
+struct rpc_pdsm_pd_ext_pos_data_s {
+  rpc_int32 a;
+  rpc_int32 b;
+  rpc_uint16 c;
+  rpc_uint16 d;
+  rpc_int16 e;
+  rpc_int16 f;
+  rpc_dword g;
+  rpc_uint16 h;
+  rpc_uint16 i;
+  rpc_uint16 ii;
+  rpc_boolean j;
+};
+typedef rpc_pdsm_pd_ext_pos_data_s rpc_pdsm_pd_ext_pos_data_s_type;
+
+struct rpc_pdsm_ext_use_this_pos_data {
+  rpc_int32 a;
+  rpc_int32 b;
+  rpc_dword c;
+  rpc_byte d;
+  rpc_byte e;
+  rpc_byte f;
+  rpc_pdsm_pd_opt_field opt_field;
+  rpc_int16 h;
+  rpc_word i;
+  rpc_word j;
+  rpc_boolean k;
+  rpc_int8 l;
+  rpc_byte m;
+  rpc_pdsm_pd_positioning_source_type n;
+  rpc_pdsm_pd_gps_position_e_type o;
+  rpc_int8 p;
+  rpc_byte q;
+  rpc_pdsm_pd_position_mode_e_type r;
+  rpc_pdsm_pd_ext_pos_data_s_type s;
+};
+typedef rpc_pdsm_ext_use_this_pos_data rpc_pdsm_ext_use_this_pos_data_type_type;
+
+struct rpc_pdsm_use_this_position_args {
+  rpc_pdsm_ext_pos_cmd_cb_f_type cb_f;
+  rpc_pdsm_ext_use_this_pos_data_type *data;
+  rpc_pdsm_use_this_position_args_client_data_ptr client_data_ptr;
+  rpc_pdsm_client_id_type client_id;
+};
+
+typedef rpc_boolean rpc_pdsm_use_this_position_rets;
+
+
+
+
+
+
+
+
+enum rpc_pdsm_lcs_agent_notification_resp_e {
+  FIXME = 0
+};
+typedef rpc_pdsm_lcs_agent_notification_resp_e rpc_pdsm_lcs_agent_notification_resp_e_type;
+
+enum rpc_pdsm_lcs_info_cmd_e {
+  vx_notify_verify_req = 0,
+  supl_notify_verify_req,
+  umts_cp_notify_verify_req,
+  vx_notify_verify_req_2,
+  client_type,
+  lcs_agent_config
+};
+typedef rpc_pdsm_lcs_info_cmd_e rpc_pdsm_lcs_info_cmd_e_type;
+
+enum rpc_pdsm_lcs_notify_verify_e {
+  FIXME = 0
+};
+typedef rpc_pdsm_lcs_notify_verify_e rpc_pdsm_lcs_notify_verify_e_type;
+
+enum rpc_pos_tech_indicator_e {
+  FIXME = 0
+};
+typedef rpc_pos_tech_indicator_e rpc_pdsm_lcs_pos_tech_indicator_e_type;
+
+enum rpc_pdsm_lcs_pos_mode_e {
+  FIXME = 0
+};
+typedef rpc_pdsm_lcs_pos_mode_e rpc_pdsm_lcs_pos_mode_e_type;
+
+enum rpc_pdsm_lcs_requester_id_encoding_scheme_e {
+  FIXME = 0
+};
+typedef rpc_pdsm_lcs_requester_id_encoding_scheme_e rpc_pdsm_lcs_requester_id_encoding_scheme_e_type;
+
+struct rpc_pdsm_lcs_requester_id_s {
+  rpc_byte a;
+  opaque id[200];
+};
+typedef rpc_pdsm_lcs_requester_id_s rpc_pdsm_lcs_requester_id_s_type;
+
+struct rpc_psdm_lcs_vx_notify_verify_req_s {
+  rpc_pdsm_lcs_notify_verify_e_type verify;
+  rpc_pdsm_lcs_pos_tech_indicator_e_type tech;
+  rpc_boolean a;
+  rpc_uint8 b;
+  rpc_dword c;
+  rpc_dword d;
+  rpc_pdsm_lcs_pos_mode_e_type pos_mode;
+  rpc_pdsm_lcs_requester_id_encoding_scheme_e_type encoding_scheme;
+  rpc_pdsm_lcs_requester_id_s_type requester_id;
+  rpc_uint16 e;
+};
+typedef rpc_psdm_lcs_vx_notify_verify_req_s rpc_psdm_lcs_vx_notify_verify_req_s_type;
+
+struct rpc_psdm_supl_slp_address {
+  rpc_pdsm_server_address_e_type type;
+  rpc_pdsm_server_address_u_type address;
+};
+
+struct rpc_pdsm_supl_slp_session_id_s {
+  rpc_boolean a;
+  opaque b[4];
+  rpc_psdm_supl_slp_address address;
+};
+typedef rpc_pdsm_supl_slp_session_id_s rpc_pdsm_supl_slp_session_id_s_type;
+
+enum rpc_pdsm_lcs_notify_verify_datacoding_scheme_e {
+  FIXME = 0
+};
+typedef rpc_pdsm_lcs_notify_verify_datacoding_scheme_e rpc_pdsm_lcs_notify_verify_datacoding_scheme_e_type;
+
+enum rpc_pdsm_lcs_pos_method_e {
+  FIXME = 0
+};
+typedef rpc_pdsm_lcs_pos_method_e rpc_pdsm_lcs_pos_method_e_type;
+
+struct rpc_psdm_lcs_requestor_id_s_type {
+  rpc_byte a;
+  opaque b[63];
+  rpc_uint8 c;
+};
+
+struct rpc_pdsm_lcs_client_name_s_type {
+  rpc_byte a;
+  opaque b[63];
+  rpc_uint8 c;
+};
+
+struct rpc_pdsm_lcs_supl_qop {
+  rpc_uint8 a;
+  rpc_uint8 b;
+  rpc_uint8 c;
+  rpc_uint16 d;
+  rpc_uint8 e;
+};
+typedef rpc_pdsm_lcs_supl_qop rpc_pdsm_lcs_supl_qop_s_type;
+
+struct rpc_pdsm_lcs_supl_notify_verify_req_s {
+  rpc_pdsm_lcs_notify_verify_e_type type;
+  rpc_uint16 a;
+  rpc_pdsm_supl_slp_session_id_s_type session_id;
+  opaque b[8];
+  rpc_pdsm_lcs_notify_verify_datacoding_scheme_e_type datacoding_scheme;
+  rpc_pdsm_lcs_pos_method_e_type pos_method;
+  rpc_psdm_lcs_requestor_id_s_type requestor_id;
+  rpc_pdsm_lcs_client_name_s_type client_name;
+  rpc_pdsm_lcs_supl_qop_s_type qop_type;
+  rpc_uint16 k;
+};
+typedef rpc_pdsm_lcs_supl_notify_verify_req_s rpc_pdsm_lcs_supl_notify_verify_req_s_type;
+
+struct rpc_pdsm_lcs_ext_client_address_s_type {
+  rpc_byte a;
+  opaque addr[20];
+};
+
+enum rpc_pdsm_lcs_location_type_e_type {
+  FIXME = 0
+};
+
+struct rpc_pdsm_lcs_deferred_location_s_type {
+  rpc_byte a;
+  rpc_byte b;
+};
+
+struct rpc_pdsm_lcs_codeword_string_s_type {
+  rpc_byte a;
+  opaque b[20];
+  rpc_uint8 c;
+};
+
+struct rpc_pdsm_lcs_service_type_ID_s_type {
+  rpc_byte a;
+};
+
+struct rpc_pdsm_lcs_umts_cp_notify_verify_req_s {
+  rpc_pdsm_lcs_notify_verify_e_type type;
+  rpc_uint8 a;
+  rpc_uint16 b;
+  rpc_uint8 c;
+  string s<>;
+  rpc_pdsm_lcs_notify_verify_datacoding_scheme_e_type datacoding_scheme;
+  rpc_pdsm_lcs_ext_client_address_s_type client_address;
+  rpc_pdsm_lcs_location_type_e_type location_type;
+  rpc_pdsm_lcs_deferred_location_s_type location;
+  rpc_psdm_lcs_requestor_id_s_type requestor_id;
+  rpc_pdsm_lcs_codeword_string_s_type codeword;
+  rpc_pdsm_lcs_service_type_ID_s_type service_type_id;
+  rpc_uint16 e;
+};
+typedef rpc_pdsm_lcs_umts_cp_notify_verify_req_s rpc_pdsm_lcs_umts_cp_notify_verify_req_s_type;
+
+enum rpc_pdsm_lcs_agent_version_e_type {
+  FIXME = 0
+};
+
+struct rpc_pdsm_lcs_agent_vx_config_s_type {
+  rpc_pdsm_lcs_agent_version_e_type agent_version;
+  rpc_boolean a;
+};
+
+union rpc_pdsm_lcs_info_u_type switch ( rpc_pdsm_lcs_info_cmd_e info ) {
+case vx_notify_verify_req:
+case vx_notify_verify_req_2:
+  rpc_pdsm_lcs_vx_notify_verify_req_s_type vx;
+case supl_notify_verify_req:
+  rpc_pdsm_lcs_supl_notify_verify_req_s_type supl;
+case umts_cp_notify_verify_req:
+  rpc_pdsm_lcs_umts_cp_notify_verify_req_s_type umts;
+case client_type:
+  rpc_pdsm_client_type_e_type client;
+case lcs_agent_config:
+  rpc_pdsm_lcs_agent_vx_config_s_type agent;
+};
+
+struct rpc_pdsm_lcs_agent_notification_resp_s {
+  rpc_pdsm_lcs_agent_notification_resp_e_type resp;
+  rpc_pdsm_lcs_info_cmd_e_type cmd;
+  rpc_pdsm_lcs_info_u_type info;
+};
+typedef rpc_pdsm_lcs_agent_notification_resp_s rpc_pdsm_lcs_agent_notification_resp_s_type;
+
+typedef rpc_uint32 rpc_pdsm_lcs_agent_client_response_args_client_data_ptr;
+
+struct rpc_pdsm_lcs_agent_client_response_args {
+  rpc_pdsm_lcs_cmd_cb_f_type cb_f;
+  rpc_pdsm_lcs_agent_client_response_args_client_data_ptr client_data_ptr;
+  rpc_pdsm_lcs_agent_notification_resp_s_type *notification_resp;
+  rpc_pdsm_client_id_type client_id;
+};
+
+typedef rpc_boolean rpc_pdsm_lcs_agent_client_response_rets;
+
+
+
+
+
+
+
+
+
+
+enum rpc_pdsm_pa_e {
+  jgpsone_app = 1,
+  gps_lock,
+  type_3,
+  delete_parms,
+  position_mode,
+  pa_mt_lr_support,
+  pa_mo_method,
+  pa_nmea,
+  type_9,
+  type_10,
+  type_11,
+  pd_ssd,
+  pd_sec_update_rate,
+  type_14,
+  pa_nmea_config,
+  pdsm_efs_data,
+  type_17,
+  pa_sbas_status,
+  type_19,
+  type_20,
+  type_21
+};
+
+typedef rpc_pdsm_pa_e rpc_pdsm_pa_e_type;
+
+typedef rpc_uint32 rpc_pdsm_get_parameters_args_client_data_ptr;
+
+struct rpc_pdsm_get_parameters_args {
+  rpc_pdsm_lcs_pa_cb_f_type cb_f;
+  rpc_pdsm_get_parameters_args_client_data_ptr client_data_ptr;
+  rpc_pdsm_pa_e_type pa_e_type;
+  rpc_pdsm_client_id_type client_id;
+};
+
+typedef rpc_boolean rpc_pdsm_get_parameters_rets;
+
+
+
+
+
+
+struct rpc_pdsm_pm_jgpsone_app_s_type {
+  rpc_byte *a; /* FIXME: needs checked */
+  rpc_byte b;
+  rpc_byte c;
+  rpc_byte d;
+  rpc_byte e;
+  rpc_byte f;
+};
+
+enum rpc_pdsm_gps_lock_e_type {
+  FIXME = 0
+};
+
+struct rpc_pdsm_delete_parms_type {
+  rpc_uint32 a;
+  rpc_uint32 b;
+  rpc_uint32 c;
+  rpc_uint32 d;
+  rpc_uint32 e;
+  rpc_uint32 f;
+  rpc_uint32 g;
+  rpc_uint32 h;
+};
+
+struct rpc_pdsm_position_mode_type {
+  rpc_uint32 pmode;
+};
+
+enum rpc_pdsm_pa_mt_lr_support_e_type {
+  FIXME = 0
+};
+
+enum rpc_pdsm_pa_mo_method_e_type {
+  FIXME = 0
+};
+
+typedef rpc_uint8 rpc_pdsm_pa_nmea_type;
+
+struct rpc_pdsm_pd_ssd_s {
+  rpc_uint8 a;
+  opaque b[127];
+};
+typedef rpc_pdsm_pd_ssd_s rpc_pdsm_pd_ssd_s_type;
+
+struct rpc_pdsm_pd_sec_update_rate {
+  rpc_uint8 a;
+};
+typedef rpc_pdsm_pd_sec_update_rate rpc_pdsm_pd_sec_update_rate_s_type;
+
+enum rpc_pdsm_pa_nmea_port_e_type {
+  FIXME = 0
+};
+
+enum rpc_pdsm_pa_nmea_reporting_e_type {
+  FIXME = 0
+};
+
+struct rpc_pdsm_pa_nmea_config_s_type {
+  rpc_pdsm_pa_nmea_port_e_type port;
+  rpc_pdsm_pa_nmea_reporting_e_type reporting;
+};
+
+struct rpc_pdsm_efs_data_s {
+  rpc_uint8 a;
+  string b<>;
+  rpc_uint8 c;
+  rpc_uint32 d;
+  rpc_uint32 e;
+  opaque f<>;
+  rpc_uint8 g;
+  rpc_uint8 h;
+};
+typedef rpc_pdsm_efs_data_s rpc_pdsm_efs_data_s_type;
+
+enum rpc_pdsm_pa_sbas_status_e_type {
+  FIXME = 0
+};
+
+union rpc_pdsm_pa_info switch ( pda_pdsm_pa_e xx ) {
+case jgpsone_app:
+  rpc_pdsm_pm_jgpsone_app_s_type jgpsone_app;
+case gps_lock:
+  rpc_pdsm_gps_lock_e_type gps_lock;
+case delete_parms:
+  rpc_pdsm_delete_parms_type delete_parms;
+case position_mode:
+  rpc_pdsm_position_mode_type position_mode;
+case pa_mt_lr_support:
+  rpc_pdsm_pa_mt_lr_support_e_type pa_mt_lr_support;
+case pa_mo_method:
+  rpc_pdsm_pa_mo_method_e_type pa_mo_method;
+case pa_nmea:
+  rpc_pdsm_pa_nmea_type pa_nmea;
+case type_9:
+case type_10:
+case type_11:
+  rpc_pdsm_server_address_s_type server_address;
+case pd_ssd:
+  rpc_pdsm_pd_ssd_s_type pd_ssd;
+case pd_sec_update_rate:
+  rpc_pdsm_pd_sec_update_rate_s_type pd_sec_update_rate;
+case pa_nmea_config:
+  rpc_pdsm_pa_nmea_config_s_type pa_nmea_config;
+case pdsm_efs_data:
+  rpc_pdsm_efs_data_s_type pdsm_efs_data;
+case pa_sbas_status:
+  rpc_pdsm_pa_sbas_status_e_type pa_sbas_status;
+case type_19:
+  rpc_uint8 type_19;
+case type_3:
+case type_14:
+case type_17:
+case type_20:
+case type_21:
+  rpc_boolean boolvalue;
+default:
+  void;
+};
+typedef rpc_pdsm_pa_info rpc_pdsm_pa_info_type;
+
+typedef rpc_uint32 rpc_pdsm_set_parameters_args_client_data_ptr;
+
+struct rpc_pdsm_set_parameters_args {
+  rpc_pdsm_pa_cmd_cb_f_type cb_f;
+  rpc_pdsm_set_parameters_args_client_data_ptr client_data_ptr;
+  rpc_pdsm_pa_e_type pa_e_type;
+  rpc_pdsm_pa_info_type *ptr;
+  rpc_pdsm_client_id_type client_id_type;
+};
+
+typedef rpc_boolean rpc_pdsm_set_parameters_rets;
+
+
+
+
+
+
+struct rpc_pdsm_pd_extern_coarse_pos_opt_field {
+  rpc_uint32 coarse_pos;
+};
+
+enum rpc_pdsm_pd_extern_coarse_pos_time_stamp_e_type {
+  FIXME = 0
+};
+
+enum rpc_pdsm_pd_extern_coarse_pos_alt_def_e_type {
+  FIXME = 0
+};
+
+enum rpc_pdsm_pd_extern_coarse_pos_source_e_type {
+  FIXME = 0
+};
+
+struct rpc_pdsm_pd_external_pos_info {
+  rpc_pdsm_pd_extern_coarse_pos_opt_field a;
+  rpc_pdsm_pd_extern_coarse_pos_time_stamp_e_type b;
+  rpc_uint32 c;
+  rpc_pdsm_pd_extern_coarse_pos_alt_def_e_type d;
+  rpc_pdsm_pd_extern_coarse_pos_source_e_type e;
+  rpc_int32 f;
+  rpc_int32 g;
+  rpc_uint32 h;
+  rpc_int16 i;
+  rpc_uint16 j;
+  rpc_uint8 k;
+  rpc_uint8 l;
+};
+typedef rpc_pdsm_pd_external_pos_info rpc_pdsm_pd_external_pos_info_type;
+
+typedef rpc_uint32 rpc_pdsm_pd_inject_external_pos_args_client_data_ptr;
+
+struct rpc_pdsm_pd_inject_external_pos_args {
+  rpc_pdsm_pd_cmd_cb_f_type cb_f;
+  rpc_pdsm_pd_inject_external_pos_args_client_data_ptr client_data_ptr;
+  rpc_pdsm_pd_external_pos_info_type *ptr;
+  rpc_pdsm_client_id_type client_id;
+};
+
+typedef rpc_boolean rpc_pdsm_pd_inject_external_pos_rets;
+
+
+
+
+
+
+
+
+
+
+enum rpc_pdsm_pd_clk_src_e {
+  FIXME = 0
+};
+typedef rpc_pdsm_pd_clk_src_e rpc_pdsm_pd_clk_src_e_type;
+
+struct rpc_pdsm_pd_external_time_info {
+  rpc_uint64 a;
+  rpc_uint32 b;
+  rpc_pdsm_pd_clk_src_e_type clk_src;
+  rpc_boolean c;
+  rpc_uint8 d;
+  rpc_boolean e;
+};
+typedef rpc_pdsm_pd_external_time_info rpc_pdsm_pd_external_time_info_type;
+
+typedef rpc_uint32 rpc_pdsm_pd_inject_external_time_args_client_data_ptr;
+
+struct rpc_pdsm_pd_inject_external_time_args {
+  rpc_pdsm_pd_cmd_cb_f_type cb_f;
+  rpc_pdsm_pd_inject_external_time_args_client_data_ptr client_data_ptr;
+  rpc_pdsm_pd_external_time_info_type *ptr;
+  rpc_pdsm_client_id_type client_id;
+};
+
+typedef rpc_boolean rpc_pdsm_pd_inject_external_time_rets;
+
+
+
+
+
+
+enum rpc_pdsm_pd_end_session_e_type {
+  FIXME = 0
+/* FIXME: unknown values */
+};
+
+typedef rpc_uint32 rpc_pdsm_end_session_args_client_data_ptr;
+
+struct rpc_pdsm_end_session_args {
+  rpc_pdsm_pd_cmd_cb_f_type cb_f;
+  rpc_pdsm_pd_end_session_e_type type;
+  rpc_pdsm_end_session_args_client_data_ptr client_data_ptr;
+  rpc_pdsm_client_id_type client_id;
+};
+
+typedef rpc_boolean rpc_pdsm_end_session_rets;
+
+
+
+
+
+
+
+
+typedef rpc_uint32 rpc_pdsm_get_position_args_client_data_ptr;
+
+enum rpc_pdsm_pd_option_e {
+  FIXME = 0
+/* FIXME: unknown values */
+};
+
+typedef rpc_pdsm_pd_option_e rpc_pdsm_pd_session_e_type;
+
+enum rpc_pdsm_pd_session_operation_e_type {
+  FIXME = 0
+/* FIXME: unknown values */
+};
+
+struct rpc_pdsm_pd_fix_rate_s_type {
+  rpc_dword a;
+  rpc_dword b;
+};
+
+enum rpc_pdsm_server_option_e_type {
+  FIXME = 0
+/* FIXME: unknown values */
+};
+
+enum rpc_pdsm_server_address_e_type {
+  ipv4 = 0,
+  server_url,
+  ipv6
+};
+
+struct rpc_server_ipv4_address_type {
+  rpc_dword a;
+  rpc_dword b;
+};
+
+struct rpc_pdsm_server_url_address_type {
+  rpc_uint8 a;
+  opaque url[255];
+};
+
+struct rpc_pdsm_server_ipv6_address_type {
+  rpc_uint16 x[8];
+  rpc_dword b;
+};
+
+union rpc_pdsm_server_address_u_type switch (enum rpc_pdsm_server_address_e_type type) {
+case ipv4:
+  rpc_server_ipv4_address_type ipv4;
+case server_url:
+  rpc_pdsm_server_url_address_type server_url;
+case ipv6:
+  rpc_pdsm_server_ipv6_address_type ipv6;
+default:
+  void;
+};
+
+struct rpc_pdsm_server_address_s_type {
+  rpc_pdsm_server_address_e_type type;
+  rpc_pdsm_server_address_u_type address;
+};
+
+struct rpc_pdsm_pd_server_info_s_type {
+  rpc_pdsm_server_option_e_type type;
+  rpc_pdsm_server_address_s_type address;
+};
+
+struct rpc_pdsm_pd_sec_data_s {
+  rpc_uint8 unknown1;
+  rpc_uint8 unknown2;
+  opaque data[20];
+};
+
+typedef rpc_pdsm_pd_sec_data_s rpc_pdsm_pd_sec_data_s_type;
+
+struct rpc_pdsm_pd_auth_s {
+  rpc_pdsm_pd_sec_data_s_type data;
+};
+typedef rpc_pdsm_pd_auth_s rpc_pdsm_pd_auth_s_type;
+
+enum rpc_pdsm_sess_jgps_type_e_type {
+  FIXME = 0
+};
+
+struct rpc_pdsm_srch_jgps_ppm_info_s_type {
+  rpc_byte a;
+  rpc_byte b;
+};
+
+struct rpc_pdsm_srch_jgps_prm_info_s_type {
+  rpc_byte a;
+  rpc_byte b;
+};
+
+struct rpc_pdsm_pd_meas_mode_info_s_type {
+  rpc_pdsm_sess_jgps_type_e_type type;
+  rpc_pdsm_srch_jgps_ppm_info_s_type ppm;
+  rpc_pdsm_srch_jgps_prm_info_s_type prm;
+};
+
+struct rpc_pdsm_pd_option_s_type {
+  rpc_pdsm_pd_session_e_type session;
+  rpc_pdsm_pd_session_operation_e_type operation;
+  rpc_pdsm_pd_fix_rate_s_type fix_rate_s;
+  rpc_pdsm_pd_server_info_s_type server_info;
+  rpc_uint32 unknown1;
+  rpc_pdsm_pd_auth_s_type auth;
+  rpc_pdsm_pd_meas_mode_info_s_type mode;  
+};
+
+struct rpc_pdsm_pd_qos_struct {
+  rpc_dword a;
+  rpc_byte b;
+};
+typedef rpc_pdsm_pd_qos_struct rpc_pdsm_pd_qos_type;
+
+struct rpc_pdsm_get_position_args {
+  rpc_pdsm_pd_cmd_cb_f_type cb_f;
+  rpc_pdsm_get_position_args_client_data_ptr client_data_ptr;
+  rpc_pdsm_pd_option_s_type *option_s;
+  rpc_pdsm_pd_qos_type *pd_qos;
+  rpc_pdsm_client_id_type client_id;
+};
+
+typedef rpc_boolean rpc_pdsm_get_position_rets;
+
+
+
+
+struct rpc_pdsm_client_deact_args { 
+  rpc_pdsm_client_id_type client_id;
+};
+
+typedef rpc_pdsm_client_statue_e_type rpc_pdsm_client_deact_rets;
+
+
+enum rpc_pdsm_client_status_e {
+FIXME = 0
+};
+typedef rpc_pdsm_client_status_e rpc_pdsm_client_status_e_type;
+
+typedef rpc_pdsm_client_id_type rpc_pdsm_client_act_args;
+
+typedef rpc_pdsm_client_status_e_type rpc_pdsm_client_act_rets;
+
+
+
+
+
+
+typedef rpc_uint32 rpc_pdsm_client_ext_status_reg_args_client_data_ptr;
+enum rpc_pdsm_client_event_reg_e {
+  FIXME = 0
+};
+typedef rpc_pdsm_client_event_reg_e rpc_pdsm_client_event_reg_e_type;
+typedef int rpc_pdsm_ext_status_event_type;
+
+struct rpc_pdsm_client_ext_status_reg_args {
+  rpc_pdsm_client_id_type client_id;
+  rpc_pdsm_client_ext_status_reg_args_client_data_ptr client_data_ptr;
+  rpc_pdsm_ext_status_event_f_type event_f;
+  rpc_pdsm_client_event_reg_e_type event_reg;
+  rpc_pdsm_ext_status_event_type status_event;
+  rpc_pdsm_ext_status_cmd_err_f_type cmd_err;
+};
+
+typedef rpc_pdsm_client_status_e_type rpc_pdsm_client_ext_status_reg_rets;
+
+
+
+
+
+
+
+typedef rpc_uint32 rpc_pdsm_client_xtra_reg_args_client_data_ptr;
+typedef int rpc_pdsm_xtra_event_type;
+
+struct rpc_pdsm_client_xtra_reg_args {
+  rpc_pdsm_client_id_type client_id;
+  rpc_pdsm_client_xtra_reg_args_client_data_ptr client_data_ptr;
+  rpc_pdsm_xtra_event_f_type event;
+  rpc_pdsm_client_event_reg_e_type event_reg;
+  rpc_pdsm_xtra_event_type xtra_event;
+  rpc_pdsm_xtra_cmd_err_f_type cmd_err;
+};
+
+typedef rpc_pdsm_client_status_e_type rpc_pdsm_client_xtra_reg_rets;
+
+
+
+
+
+
+
+typedef rpc_uint32 rpc_pdsm_client_lcs_reg_args_client_data_ptr;
+typedef int rpc_pdsm_lcs_event_type;
+
+struct rpc_pdsm_client_lcs_reg_args {
+  rpc_pdsm_client_id_type client_id;
+  rpc_pdsm_client_lcs_reg_args_client_data_ptr client_data;
+  rpc_pdsm_lcs_event_f_type event;
+  rpc_pdsm_client_event_reg_e_type event_reg;
+  rpc_pdsm_lcs_event_type lcs_event;
+  rpc_pdsm_lcs_cmd_err_f_type cmd_err;
+};
+
+typedef rpc_pdsm_client_status_e_type rpc_pdsm_client_lcs_reg_rets;
+
+
+
+
+
+
+
+
+typedef rpc_uint32 rpc_pdsm_client_pa_reg_args_client_data_ptr;
+typedef int rpc_pdsm_pa_event_type;
+
+struct rpc_pdsm_client_pa_reg_args {
+  rpc_pdsm_client_id_type client_id;
+  rpc_pdsm_client_pa_reg_args_client_data_ptr client_data;
+  rpc_pdsm_pa_event_f_type event;
+  rpc_pdsm_client_event_reg_e_type event_reg;
+  rpc_pdsm_pa_event_type lcs_event;
+  rpc_pdsm_pa_cmd_err_f_type cmd_err;
+};
+
+typedef rpc_pdsm_client_status_e_type rpc_pdsm_client_pa_reg_rets;
+
+
+
+
+
+
+typedef rpc_uint32 rpc_pdsm_client_pd_reg_args_client_data_ptr;
+typedef rpc_uint32 rpc_pdsm_pd_event_type;
+
+struct rpc_pdsm_client_pd_reg_args {
+  rpc_pdsm_client_id_type client_id;
+  rpc_pdsm_client_pd_reg_args_client_data_ptr client_data;
+  rpc_pdsm_pd_event_f_type event;
+  rpc_pdsm_client_event_reg_e_type event_reg;
+  rpc_pdsm_pd_event_type lcs_event;
+  rpc_pdsm_pd_cmd_err_f_type cmd_err;
+};
+
+typedef rpc_pdsm_client_status_e_type rpc_pdsm_client_pd_reg_rets;
+
+
+
+
+typedef rpc_pdsm_client_id_type rpc_pdsm_client_release_args;
+typedef rpc_pdsm_client_status_e_type rpc_pdsm_client_release_rets;
+
+
+
+
+
+typedef rpc_pdsm_client_type_e_type rpc_pdsm_client_init_args;
+typedef rpc_pdsm_client_id_type rpc_pdsm_client_init_rets;
+
+
+
+
+struct rpc_pdapi_rpc_glue_code_info_remote_rets {
+  rpc_uint32 a;
+  rpc_uint32 b;
+  rpc_uint32 c;
+  rpc_uint32 d;
+};
+
+
+
+
+
+program PDAPIPROG {
+  version PDAPIVERS {
+
+    rpc_pdapi_api_versions_rets
+      rpc_pdapi_api_versions( void ) = 0xFFFFFFFF;
+
+    rpc_pdsm_xtra_inject_time_info_rets
+      rpc_pdsm_xtra_inject_time_info ( rpc_pdsm_xtra_inject_time_info_args ) = 30;
+
+    rpc_pdsm_xtra_query_data_validity_rets
+      rpc_pdsm_xtra_query_data_validity ( rpc_pdsm_query_data_validity_args ) = 29;
+
+    rpc_pdsm_xtra_set_auto_download_param_rets
+      rpc_pdsm_xtra_set_auto_download_params ( rpc_pdsm_set_auto_download_params_args ) = 28;
+
+    rpc_pdsm_xtra_client_initiate_download_request_rets
+      rpc_pdsm_xtra_client_initiate_download_request ( rpc_pdsm_xtra_client_initiate_download_request_args ) = 27;
+
+    rpc_pdsm_xtra_set_data_rets
+      rpc_pdsm_xtra_set_data ( rpc_pdsm_xtra_set_data_args ) = 26;
+
+    rpc_pdsm_get_pdapi_version_rets
+      rpc_pdsm_get_pdapi_version ( void ) = 25;
+
+    rpc_pdsm_lcs_get_status_rets
+      rpc_pdsm_lcs_get_status ( void ) = 24;
+
+    rpc_pdsm_lcs_get_client_type_rets
+      rpc_pdsm_lcs_get_client_type ( rpc_pdsm_lcs_get_client_type_args ) = 23;
+
+    rpc_pdsm_lcs_query_vx_config_rets
+      rpc_pdsm_lcs_query_vx_config ( rpc_pdsm_lcs_query_vx_config_args ) = 22;
+
+    rpc_pdsm_lcs_client_release_rets
+      rpc_pdsm_lcs_client_release ( rpc_pdsm_lcs_client_release_args ) = 21;
+
+    rpc_pdsm_lcs_client_app_info_init_rets
+      rpc_pdsm_lcs_client_app_info_init ( rpc_pdsm_lcs_client_app_info_init_args ) = 20;
+
+    rpc_pdsm_lcs_client_init_rets 
+      rpc_pdsm_lcs_client_init ( rpc_pdsm_lcs_client_init_args) = 19;
+
+    rpc_pdsm_use_this_position_rets
+      rpc_pdsm_use_this_position ( rpc_pdsm_use_this_position_args) = 18;
+
+    rpc_pdsm_lcs_agent_client_response_rets
+      rpc_pdsm_lcs_agent_client_response ( rpc_pdsm_lcs_agent_client_response_args ) = 17;
+
+    rpc_pdsm_get_parameters_rets
+      rpc_pdsm_get_parameters ( rpc_pdsm_get_parameters_args ) = 16;
+
+    rpc_pdsm_set_parameters_rets
+      rpc_pdsm_set_parameters ( rpc_pdsm_set_parameters_args ) = 15;
+
+    rpc_pdsm_pd_inject_external_pos_rets
+      rpc_pdsm_pd_inject_external_pos ( rpc_pdsm_pd_inject_external_pos_args ) = 14;
+
+    rpc_pdsm_pd_inject_external_time_rets
+      rpc_pdsm_pd_inject_external_time ( rpc_pdsm_pd_inject_external_time_args ) = 13;
+
+    rpc_pdsm_end_session_rets
+      rpc_pdsm_end_session ( rpc_pdsm_end_session_args ) = 12;
+  
+    rpc_pdsm_get_position_rets
+      rpc_pdsm_get_position ( rpc_pdsm_get_position_args ) = 11;
+   
+    rpc_pdsm_client_deact_rets
+      rpc_pdsm_client_deact ( rpc_pdsm_client_deact_args ) = 10;
+   
+    rpc_pdsm_client_act_rets
+      rpc_pdsm_client_act ( rpc_pdsm_client_act_args ) = 9;
+
+    rpc_pdsm_client_ext_status_reg_rets
+      rpc_pdsm_client_ext_status_reg ( rpc_pdsm_client_ext_status_reg_args ) = 8;
+
+    rpc_pdsm_client_xtra_reg_rets
+      rpc_pdsm_client_xtra_reg ( rpc_pdsm_client_xtra_reg_args ) = 7;
+
+    rpc_pdsm_client_lcs_reg_rets
+      rpc_pdsm_client_lcs_reg ( rpc_pdsm_client_lcs_reg_args ) = 6;
+
+    rpc_pdsm_client_pa_reg_rets
+      rpc_pdsm_client_pa_reg ( rpc_pdsm_client_pa_reg_args ) = 5;
+
+    rpc_pdsm_client_pd_reg_rets
+      rpc_pdsm_client_pd_reg ( rpc_pdsm_client_pd_reg_args ) = 4;
+
+    rpc_pdsm_client_release_rets
+      rpc_pdsm_client_release ( rpc_pdsm_client_release_args ) = 3;
+
+    rpc_pdsm_client_init_rets
+      rpc_pdsm_client_init ( rpc_pdsm_client_init_args ) = 2;
+
+    rpc_pdapi_rpc_glue_code_info_remote_rets
+      rpc_pdapi_rpc_glue_code_info_remote ( void ) = 1;
+
+    void rpc_pdapi_null ( void ) = 0;
+
+  } = 0xe63bc050;
+} = 0x3000005b;
