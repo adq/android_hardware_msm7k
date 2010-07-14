@@ -1,0 +1,219 @@
+
+typedef rpc_uint32 rpc_pdsm_pd_event_f_type_args_user_data;
+
+enum rpc_pdsm_pd_end_e {
+FIXME = 0
+};
+typedef rpc_pdsm_pd_end_e rpc_pdsm_pd_end_e_type;
+
+struct rpc_pdsm_pilot_info {
+  rpc_int4 a;
+  rpc_byte b;
+  rpc_byte c;
+};
+typedef rpc_pdsm_pilot_info rpc_pdsm_pilot_info_type;
+
+struct rpc_pdsm_srch_ppm_rpt {
+  rpc_qword a;
+  rpc_boolean b;
+  rpc_word c;
+  rpc_word d;
+  rpc_byte d;
+  rpc_byte e;
+  rpc_word f;
+  rpc_word g;
+  rpc_word h;
+  rpc_word i;
+  rpc_byte j;
+  rpc_byte k;
+  rpc_word l;
+  rpc_byte m;
+  rpc_pdsm_pilot_info_type pi[25];
+};
+typedef rpc_pdsm_srch_ppm_rpt rpc_pdsm_srch_ppm_rpt_type;
+
+struct rpc_pdsm_gps_chan_rpt {
+  rpc_byte a;
+  rpc_byte b;
+  rpc_int2 c;
+  rpc_word d;
+  rpc_word e;
+  rpc_byte f;
+  rpc_int32 g;
+};
+typedef rpc_pdsm_gps_chan_rpt rpc_pdsm_gps_chan_rpt_type;
+
+struct rpc_pdsm_srch_gps_sat_rpt {
+  rpc_byte a;
+  rpc_qword b;
+  rpc_byte c;
+  rpc_byte d;
+  rpc_word e;
+  rpc_int2 f;
+  rpc_pdsm_gps_chan_rpt_type gps_chan[32];
+};
+typedef rpc_pdsm_srch_gps_sat_rpt rpc_pdsm_srch_gps_sat_rpt_type;
+
+struct rpc_pdsm_pd_meas_debug_type {
+  rpc_pdsm_srch_ppm_rpt_type ppm_rpt;
+  rpc_pdsm_srch_ppm_rpt_type gps_rpt;
+};
+
+struct rpc_pm_scu_ms_pos_fixdata_s_type {
+  u_char a;
+  u_char b;
+  u_char c;
+  opaque d[13];
+  opaque e[4];
+  opaque f[14];
+  opaque g[4];
+  opaque h[4];
+  opaque i[4];
+  opaque j[3];
+  u_char k;
+};
+typedef rpc_pm_scu_ms_pos_fixdata_s_type rpc_pm_scu_location_resp_type;
+
+struct rpc_pdsm_pd_data {
+  rpc_int32 a;
+  rpc_int32 b;
+  rpc_dword c;
+  rpc_byte d;
+  rpc_byte e;
+  rpc_byte f;
+  rpc_pdsm_pd_opt_field g;
+  rpc_int16 h;
+  rpc_word i;
+  rpc_word j;
+  rpc_boolean k;
+  rpc_int8 l;
+  rpc_byte m;
+  rpc_pdsm_pd_meas_debug_type *n;
+  rpc_pm_scu_location_resp_type *o;
+  rpc_int16 p;
+  rpc_pdsm_pd_positioning_source_type q;
+  rpc_pdsm_pd_gps_position_e_type r;
+  rpc_int8 s;
+  rpc_byte t;
+  rpc_pdsm_pd_position_mode_e_type u;
+  rpc_pdsm_pd_ext_pos_data_s_type v;
+};
+typedef rpc_pdsm_pd_data rpc_pdsm_pd_data_type;
+
+enum rpc_pdsm_pd_dload_e_type {
+  FIXME = 0
+};
+
+enum rpc_pdsm_pd_dload_source_e_type {
+  FIXME = 0
+};
+
+struct rpc_pdsm_pd_dload_info_s_type {
+  rpc_pdsm_pd_dload_e_type a;
+  rpc_pdsm_pd_dload_source_e_type b;
+};
+
+struct rpc_pdsm_pd_time_julian_type {
+  rpc_uint16 a;
+  rpc_uint16 b;
+  rpc_uint16 c;
+  rpc_uint16 d;
+  rpc_uint16 e;
+  rpc_uint16 f;
+  rpc_uint16 g;
+};
+
+struct rpc_pdsm_pd_jgps_msdload_info_s_type {
+  rpc_boolean a;
+  rpc_pdsm_pd_time_julian_type b;
+  rpc_boolean c;
+  rpc_pdsm_pd_dload_e_type d;
+};
+
+struct rpc_pdsm_pd_dload_dat_s_type {
+  rpc_byte a;
+  rpc_pdsm_pd_dload_info_s_type b[5];
+  rpc_pdsm_pd_jgps_msdload_info_s_type c;
+};
+
+enum rpc_pdsm_pd_comm_protocol_e_type {
+  FIXME = 0
+};
+
+struct rpc_pdsm_pd_comm_protocol_s_type {
+  rpc_pdsm_pd_comm_protocol_e_type a;
+};
+
+enum rpc_pdsm_pd_fix_type_e {
+  FIXME = 0
+};
+typdef rpc_pdsm_pd_fix_type_e rpc_pdsm_pd_fix_type_e_type;
+
+enum rpc_pdsm_pd_fix_selection_e {
+  FIXME = 0
+};
+typdef rpc_pdsm_pd_fix_selection_e rpc_pdsm_pd_fix_selection_e_type;
+
+enum rpc_pdsm_pd_fix_quality_e {
+  FIXME = 0
+};
+typdef rpc_pdsm_pd_fix_quality_e rpc_pdsm_pd_fix_quality_e_type;
+
+struct rpc_pdsm_sv_inview_s {
+  rpc_uint8 a;
+  rpc_uint8 b;
+  rpc_uint16 c;
+};
+typdef rpc_pdsm_sv_inview_s rpc_pdsm_sv_inview_s_type;
+
+// FIXME: about to do rpc_pdsm_pd_data_ext_s
+
+program PDAPICBPROG {
+  version PDAPICBVERS {
+    FIXME
+      pd_event ( rpc_pdsm_pd_event_f_type_args) = 1;
+    
+    FIXME
+      pa_event ( rpc_pdsm_pa_event_f_type_args) = 2;
+
+    FIXME
+      lcs_event ( rpc_pdsm_lcs_event_f_type_args) = 3;
+
+    FIXME
+      ext_status_event ( rpc_pdsm_ext_status_event_f_type_args) = 4;
+
+    FIXME
+      xtra_event ( rpc_pdsm_xtra_event_f_type_args) = 5;
+
+    FIXME
+      pd_cmd_err ( rpc_pdsm_pd_cmd_err_f_type_args) = 6;
+
+    FIXME
+      pa_cmd_err ( rpc_pdsm_pa_cmd_err_f_type_args) = 7;
+
+    FIXME
+      lcs_cmd_err ( rpc_pdsm_lcs_cmd_err_f_type_args) = 8;
+
+    FIXME
+      ext_status_cmd_err ( rpc_pdsm_ext_status_cmd_err_f_type_args) = 9;
+
+    FIXME
+      xtra_cmd_err ( rpc_pdsm_xtra_cmd_err_f_type_args) = 10;
+
+    FIXME
+      pd_cmd_cb ( rpc_pdsm_pd_cmd_cb_f_type_args) = 11;
+
+    FIXME
+      pa_cmd_cb ( rpc_pdsm_pa_cmd_cb_f_type_args) = 12;
+
+    FIXME
+      lcs_cmd_cb ( rpc_pdsm_lcs_cmd_cb_f_type_args) = 13;
+
+    FIXME
+      ext_status_cmd_cb ( rpc_pdsm_ext_status_cmd_cb_f_type_args) = 14;
+
+    FIXME
+      xtra_cmd_cb ( rpc_pdsm_xtra_cmd_cb_f_type_args) = 15;
+
+  } = 0x95b5cd25;
+} = 0x3000005b;
